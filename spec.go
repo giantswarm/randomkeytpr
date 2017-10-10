@@ -1,7 +1,8 @@
 package randomkeytpr
 
 type Searcher interface {
-	SearchKeys(clusterID string) (AssetsBundle, error)
+	SearchKeys(clusterID string) (map[Key][]byte, error)
+	SearchKeysForKeytype(clusterID, keyType string) (map[Key][]byte, error)
 }
 
 type Spec struct {

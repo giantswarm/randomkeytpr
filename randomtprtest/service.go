@@ -9,10 +9,10 @@ func NewService() Service {
 	return Service{}
 }
 
-func (s Service) SearchKeys(clusterID string) (randomkeytpr.AssetsBundle, error) {
-	return randomkeytpr.AssetsBundle{}, nil
+func (s Service) SearchKeys(clusterID string) (map[randomkeytpr.Key][]byte, error) {
+	return map[randomkeytpr.Key][]byte{}, nil
 }
 
-func (s *Service) SearchKeysForComponent(clusterID, componentName string) (randomkeytpr.AssetsBundle, error) {
-	return randomkeytpr.AssetsBundle{}, nil
+func (s Service) SearchKeysForKeytype(clusterID, keyType string) (map[randomkeytpr.Key][]byte, error) {
+	return map[randomkeytpr.Key][]byte{}, nil
 }
