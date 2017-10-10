@@ -10,7 +10,6 @@ import (
 )
 
 func TestSpecYamlEncoding(t *testing.T) {
-
 	spec := Spec{
 		ClusterComponent: "api",
 		ClusterID:        "0yxr7",
