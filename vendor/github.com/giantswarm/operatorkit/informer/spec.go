@@ -1,12 +1,17 @@
 package informer
 
 import (
-	"k8s.io/apimachinery/pkg/runtime"
+	"context"
+
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"k8s.io/apimachinery/pkg/watch"
 )
 
-// ZeroObjectFuncs provides zero values of an object and objects' list ready to
-// be decoded. The provided zero values must not be reused by zeroObjectFactory.
-type ZeroObjectFactory interface {
-	NewObject() runtime.Object
-	NewObjectList() runtime.Object
+type Interface interface {
+	Watch(ctx context.Context) (chan watch.Event, chan watch.Event, chan error)
+}
+
+// Watcher provides Watch method compatible with Kubernetes clients.
+type Watcher interface {
+	Watch(metav1.ListOptions) (watch.Interface, error)
 }
